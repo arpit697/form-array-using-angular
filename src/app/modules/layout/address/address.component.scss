@@ -1,0 +1,64 @@
+mat-card-title {
+  color: #393e46;
+}
+mat-card-subtitle {
+  color: #393e46;
+}
+::ng-deep.mat-option-text {
+  display: flex;
+  justify-content: center;
+  gap: 3em;
+}
+.container {
+  display: flex;
+  box-shadow: none;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #eef3fe;
+  .countries {
+    min-width: 50vw;
+    background-color: white;
+    border-radius: 1em;
+    padding: 5em;
+    .states {
+      padding: 2em;
+      background-color: #eef3fe;
+      border-radius: 1em;
+      .field {
+        background-color: white;
+        margin-top: 1em;
+        padding: 2em;
+        border-radius: 1em;
+      }
+      .districts {
+        border: 1px solid #A1CAF1;
+        border-radius: 1em;
+        padding: 2em;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        justify-content: space-around;
+        gap: 1em;
+        mat-form-field {
+          width: 25em;
+        }
+        .button {
+          margin-top: 0.2em;
+        }
+        .cities {
+          border: 1px solid #dee6f8;
+          border-radius: 1em;
+          padding: 2em;
+          mat-form-field {
+            margin-top: 1em;
+            width: 20em;
+            margin-bottom: 0;
+            padding-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

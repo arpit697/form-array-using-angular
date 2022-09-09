@@ -1,0 +1,52 @@
+<mat-card class="container">
+    <form [formGroup]="_fs.form">
+        <mat-card-content formArrayName="countries" class="countries">
+            <mat-card-title>Select Country</mat-card-title>
+            <mat-card-content *ngFor="let country of country().controls ; let countryInd = index"
+                [formGroupName]="countryInd">
+                <mat-form-field appearance="outline">
+                    <mat-select formControlName="countryName" (selectionChange)="onCountrySelect($event)">
+                        <mat-option [value]="country" *ngFor="let country of data">{{country.emoji}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{country.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-card-content formArrayName="states" class="states">
+                    <app-buttons [buttonClass]="'add_state'" (Click)="createStateForm(countryInd)" [Text]="'Add State'"></app-buttons>
+                    <mat-card-content *ngFor="let state of state(countryInd).controls ; let stateInd = index "
+                        [formGroupName]='stateInd'ngClass="field">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Select State</mat-label>
+                            <mat-select formControlName="stateName" (selectionChange)="onStateSelect($event)">
+                                <mat-option [value]="state" *ngFor="let state of stateData">{{state.name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-card-content formArrayName="district" class="districts">
+                            <mat-card-actions class="button">
+                                <app-buttons (Click)="createDistrictForm(countryInd,stateInd)" [buttonClass]="'add_district'" [Text]="'Add District'"></app-buttons>
+                            </mat-card-actions>
+                            <mat-card-content
+                                *ngFor="let item of district(countryInd , stateInd).controls ; let districtInd = index"
+                                [formGroupName]='districtInd'>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Add District</mat-label>
+                                    <input matInput formControlName = "districtName">
+                                </mat-form-field>
+                                <mat-card-content formArrayName="city" class="cities">
+                                    <app-buttons (Click)="createCityForm(countryInd,stateInd,districtInd)"
+                                       [buttonClass]="'add_city'" [Text]="'Add City'"></app-buttons> <br>
+                                    <mat-card-content
+                                        *ngFor="let city of city(countryInd,stateInd,districtInd).controls ; let cityInd = index" [formGroupName]="cityInd">
+                                        <mat-form-field appearance="outline">
+                                            <mat-select formControlName="cityName" placeholder="Select City">
+                                                <mat-option [value]="city" *ngFor="let city of cityData">{{city.name}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field> <br><br>
+                                    </mat-card-content>
+                                </mat-card-content>
+                            </mat-card-content>
+                        </mat-card-content>
+                    </mat-card-content>
+                </mat-card-content>
+            </mat-card-content>
+        </mat-card-content>
+    </form>
+</mat-card>

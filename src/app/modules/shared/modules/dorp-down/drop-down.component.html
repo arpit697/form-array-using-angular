@@ -1,0 +1,5 @@
+<mat-form-field appearance="outline">
+    <mat-select (selectionChange)="eventEmit($event)" placeholder="{{Text}}">
+        <mat-option [value]="item" *ngFor="let item of DATA ; let index = index">{{item?.name}}</mat-option>
+    </mat-select>
+</mat-form-field>

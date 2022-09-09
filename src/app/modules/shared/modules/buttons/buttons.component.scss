@@ -1,0 +1,38 @@
+.add_state {
+    padding-left: 2em;
+    padding-right: 2em;
+    color: #ffffff;
+    background-color: #7fbcd2;
+    opacity: 0.6;
+    border-radius: 0;
+    transition: .3s ease-in-out;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.add_district {
+    padding-left: 2em;
+    padding-right: 2em;
+    color: #ffffff;
+    background-color: #7fbcd2;
+    opacity: 0.6;
+    border-radius: 0;
+    transition: .3s ease-in-out;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.add_city {
+    padding-left: 2em;
+    padding-right: 2em;
+    color: #ffffff;
+    background-color: #7fbcd2;
+    opacity: 0.6;
+    border-radius: 0;
+    transition: .3s ease-in-out;
+    &:hover {
+        opacity: 1;
+    }
+}
